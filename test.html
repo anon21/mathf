@@ -1,0 +1,52 @@
+<html>
+<head>
+
+<script src="mathf.js"></script>
+
+<script>
+function submitFormula() {
+	try {
+		var output = mathf.interpret(document.getElementById("mathf-input").value, true);
+		document.getElementById("mathf-output").value = output;
+		document.getElementById("mathf-view").innerHTML = output;
+	} catch( e ) {
+		document.getElementById("mathf-output").value = "* error *\n" + e;
+	}
+	
+	return false;
+}
+</script>
+
+<style>
+#mathf-input {
+	width: 400px;
+	border: 1px solid #c0c0c0;
+}
+
+#mathf-output {
+	width: 400px;
+	border: 1px solid #c0c0c0;
+}
+
+#mathf-view {
+	width: 400px;
+	border: 1px solid #c0c0c0;
+}
+</style>
+
+</head>
+
+<body>
+	<form onsubmit="return submitFormula();">
+		<div>
+			<input type="text" id="mathf-input" size="64" />
+			<input type="submit" value="•ÏŠ·"/>
+		</div>
+		<div>
+			<textarea id="mathf-output" readonly></textarea>
+		</div>
+		<div id="mathf-view" style="border: 0.75pt solid #c0c0c0;">
+		</div>
+	</form>
+</body>
+</html>
